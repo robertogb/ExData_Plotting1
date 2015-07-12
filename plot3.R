@@ -44,10 +44,10 @@ plot(period$Sub_metering_1,
 #           format="%a")
 # workaround for the above code
 Sys.setlocale("LC_TIME", "English")
-axis(1,c(0,nrow(period)/2,nrow(period)),
-     labels=c(format(as.Date("2007-02-01"),"%a"),
-              format(as.Date("2007-02-02"),"%a"),
-              format(as.Date("2007-02-03"),"%a")))
+dateLabels <- c(format(as.Date("2007-02-01"),"%a"),
+                format(as.Date("2007-02-02"),"%a"),
+                format(as.Date("2007-02-03"),"%a"))
+axis(1, c(0, nrow(period)/2, nrow(period)), labels = dateLabels)
 Sys.setlocale("LC_TIME", "Spanish")
 
 colors <- c("black", "red", "blue")
