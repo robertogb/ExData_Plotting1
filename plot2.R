@@ -37,18 +37,19 @@ plot(period$Global_active_power,
 )
 
 # Draw the date axis
-# axis.Date(side = 1,
-#           at = seq.Date(from = as.Date("2007/2/1"), 
-#                         to = as.Date("2007/2/3"),
-#                         by = "day"),
-#           format="%a")
+axis.Date(side = 1,
+          at = seq.Date(from = as.Date("2007-02-01"), 
+                        to = as.Date("2007-02-03"),
+                        by = "day"),
+          format="%a")
 # workaround for the above code
+prevLocale <- Sys.getlocale("LC_TIME") 
 Sys.setlocale("LC_TIME", "English")
 dateLabels <- c(format(as.Date("2007-02-01"),"%a"),
                 format(as.Date("2007-02-02"),"%a"),
                 format(as.Date("2007-02-03"),"%a"))
 axis(1, c(0, nrow(period)/2, nrow(period)), labels = dateLabels) 
-Sys.setlocale("LC_TIME", "Spanish")
+Sys.setlocale("LC_TIME", prevLocale)
 
 # close the PNG file
 dev.off()

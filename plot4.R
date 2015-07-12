@@ -29,6 +29,7 @@ period$Date <- as.Date(period$Date, "%d/%m/%Y")
 png(filename = "plot4.png", height = 480, width = 480)
 
 par(mfcol=c(2,2))
+prevLocale <- Sys.getlocale("LC_TIME") 
 Sys.setlocale("LC_TIME", "English")
 dateLabels <- c(format(as.Date("2007-02-01"),"%a"),
                 format(as.Date("2007-02-02"),"%a"),
@@ -68,7 +69,7 @@ with(period, {
 }
 )
 
-Sys.setlocale("LC_TIME", "Spanish")
+Sys.setlocale("LC_TIME", prevLocale)
 
 # close the PNG file
 dev.off()
